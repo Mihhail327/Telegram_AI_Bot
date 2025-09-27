@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78983fb6-1f72-4165-87e8-d192d19aa760" name="Changes" comment="Telegram AI Bot">
-      <change afterPath="$PROJECT_DIR$/bot/assets/prompts/image.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/core/bot_commands.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/handlers/algo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/handlers/image.py" afterDir="false" />
+    <list default="true" id="78983fb6-1f72-4165-87e8-d192d19aa760" name="Changes" comment="Update Telegram AI Bot">
+      <change afterPath="$PROJECT_DIR$/bot/handlers/personalities.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/handlers/quiz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/services/quiz_ai.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/handlers/idea.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/idea.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers/callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/callbacks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers/random.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/random.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/keyboards/inline.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/keyboards/inline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/services/chatgpt_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/services/chatgpt_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/states/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/states/states.py" afterDir="false" />
@@ -31,19 +31,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Mihhail327"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Mihhail327&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Mihhail327/Telegram_AI_Bot.git",
-    "accountId": "a3482c78-da8b-412c-9f32-519dc0a1747a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Mihhail327/Telegram_AI_Bot.git&quot;,
+    &quot;accountId&quot;: &quot;a3482c78-da8b-412c-9f32-519dc0a1747a&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -52,26 +53,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.callbacks.executor": "Run",
-    "Python.chatgpt_client.executor": "Run",
-    "Python.config.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.random.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.callbacks.executor&quot;: &quot;Run&quot;,
+    &quot;Python.chatgpt_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.random.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\PycharmProjects\PythonProject18\bot" />
       <recent name="D:\PycharmProjects\PythonProject18\bot\assets\prompts" />
+      <recent name="D:\PycharmProjects\PythonProject18\bot" />
       <recent name="D:\PycharmProjects\PythonProject18\bot\core" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PythonProject18" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -96,11 +126,31 @@
       <option name="project" value="LOCAL" />
       <updated>1758484111447</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update Telegram AI Bot">
+      <option name="closed" value="true" />
+      <created>1758488114843</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1758488114843</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Telegram AI Bot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Telegram AI Bot" />
+    <MESSAGE value="Update Telegram AI Bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Telegram AI Bot" />
   </component>
 </project>

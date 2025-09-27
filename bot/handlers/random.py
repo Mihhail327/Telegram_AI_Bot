@@ -23,6 +23,7 @@ def load_prompt() -> str:
         logger.error(f"Ошибка загрузки промпта: {e}")
         return "Расскажи интересный факт."
 
+
 @router.message(Command("random"))
 async def handle_random(message: Message, state: FSMContext):
     await state.clear()
@@ -31,16 +32,21 @@ async def handle_random(message: Message, state: FSMContext):
     fact = await ask_chatgpt(prompt)
     await message.answer(f"<b>Факт:</b>\n{fact}", reply_markup=random_fact_keyboard())
 
+
 @router.callback_query(F.data == "random_again")
 async def handle_random_again(callback: CallbackQuery, state: FSMContext):
-    await handle_random(callback.message, state)
+    prompt = load_prompt()
+    fact = await ask_chatgpt(prompt)
+    await callback.message.edit_text(f"<b>Факт:</b>\n{fact}", reply_markup=random_fact_keyboard())
     await callback.answer()
+
 
 @router.callback_query(F.data == "random_end")
 async def handle_random_end(callback: CallbackQuery, state: FSMContext):
     await state.clear()
-    await callback.message.answer("🏁 Возврат в главное меню", reply_markup=start_keyboard())
+    await callback.message.edit_text("🏁 Возврат в главное меню", reply_markup=start_keyboard())
     await callback.answer()
+
 
 def register(dp):
     dp.include_router(router)
