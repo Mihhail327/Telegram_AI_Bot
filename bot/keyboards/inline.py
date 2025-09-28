@@ -1,87 +1,95 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from bot.assets.prompts.personalities_prompt import PERSONALITIES
 
+# 🎭 Эмодзи для персонажей
+EMOJI = {
+    "einstein": "🧠",
+    "tarantino": "🎬",
+    "kanye": "🎤",
+    "tolstoy": "📚"
+}
+
+# 🧱 Утилита: создание кнопки
+def btn(text: str, callback: str) -> InlineKeyboardButton:
+    return InlineKeyboardButton(text=text, callback_data=callback)
 
 # 🏁 Главное меню
 def start_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🎲 Факт", callback_data="open_random"),
-         InlineKeyboardButton(text="💡 Идея", callback_data="open_idea")],
-        [InlineKeyboardButton(text="💬 ChatGPT", callback_data="open_gpt"),
-         InlineKeyboardButton(text="🧩 Алгоритм", callback_data="open_algo")],
-        [InlineKeyboardButton(text="🖼️ Изображение", callback_data="open_image")],
-        [InlineKeyboardButton(text="🎭 Поговорить с личностью", callback_data="open_personality")],
-        [InlineKeyboardButton(text="💰 Квиз", callback_data="open_quiz")]
+        [btn("🎲 Факт", "open_random"), btn("💡 Идея", "open_idea")],
+        [btn("💬 ChatGPT", "open_gpt"), btn("🧩 Алгоритм", "open_algo")],
+        [btn("🖼️ Изображение", "open_image")],
+        [btn("🎭 Поговорить с личностью", "open_personality")],
+        [btn("💰 Квиз", "open_quiz")]
     ])
 
+# 🔁 Общая кнопка "Назад"
+def back_keyboard(callback_end: str) -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[[btn("🏁 Назад в меню", callback_end)]])
 
 # 🎲 Факт
 def random_fact_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🔁 Ещё факт", callback_data="random_again")],
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="random_end")]
+        [btn("🔁 Ещё факт", "random_again")],
+        [btn("🏁 Назад в меню", "random_end")]
     ])
-
-
-# 💬 GPT стиль
-def gpt_style_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🤓 Кратко", callback_data="style_short"),
-         InlineKeyboardButton(text="📖 Подробно", callback_data="style_deep")],
-        [InlineKeyboardButton(text="🎭 С юмором", callback_data="style_funny"),
-         InlineKeyboardButton(text="🧘 Философски", callback_data="style_think")]
-    ])
-
 
 # 💡 Идея
 def idea_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🔁 Ещё идею", callback_data="idea_again")],
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="idea_end")]
+        [btn("🔁 Ещё идею", "idea_again")],
+        [btn("🏁 Назад в меню", "idea_end")]
     ])
 
+# 💬 GPT стиль
+def gpt_style_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [btn("🤓 Кратко", "style_short"), btn("📖 Подробно", "style_deep")],
+        [btn("🎭 С юмором", "style_funny"), btn("🧘 Философски", "style_think")]
+    ])
 
 # 🧩 Алгоритм
 def algo_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🔁 Ещё алгоритм", callback_data="algo_again")],
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="algo_end")]
+        [btn("🔁 Ещё алгоритм", "algo_again")],
+        [btn("🏁 Назад в меню", "algo_end")]
     ])
-
 
 # 🖼️ Изображение
 def image_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="image_end")]
-    ])
+    return back_keyboard("image_end")
 
-
-# 👥 Общение с известной личностью
+# 🎭 Персонажи (динамически из PERSONALITIES)
 def personality_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🧠 Эйнштейн", callback_data="person_einstein"),
-         InlineKeyboardButton(text="🎬 Тарантино", callback_data="person_tarantino")],
-        [InlineKeyboardButton(text="🎤 Канье Уэст", callback_data="person_kanye"),
-         InlineKeyboardButton(text="📚 Толстой", callback_data="person_tolstoy")],
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="person_end")]
-    ])
-
-
-def personality_reply_keyboard() -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🔁 Задать ещё вопрос", callback_data="person_again")],
-        [InlineKeyboardButton(text="🏁 Назад в меню", callback_data="person_end")]
-    ])
-
-def quiz_keyboard(options: list[str]) -> InlineKeyboardMarkup:
-    letters = ["A", "B", "C", "D"]
-    rows = [[InlineKeyboardButton(text=f"{letters[i]}: {opt}", callback_data=f"quiz_answer_{i}")]
-            for i, opt in enumerate(options)]
-    rows.append([InlineKeyboardButton(text="🏁 Завершить игру", callback_data="quiz_end")])
+    rows, row = [], []
+    for i, (key, data) in enumerate(PERSONALITIES.items(), start=1):
+        emoji = EMOJI.get(key, "👤")
+        row.append(btn(f"{emoji} {data['name']}", f"persona_{key}"))
+        if i % 2 == 0:
+            rows.append(row)
+            row = []
+    if row:
+        rows.append(row)
+    rows.append([btn("🏁 Назад в меню", "person_end")])
     return InlineKeyboardMarkup(inline_keyboard=rows)
 
-def quiz_status_keyboard() -> InlineKeyboardMarkup:
+# 🔁 Повторный вопрос к персонажу
+def personality_reply_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="➡️ Следующий вопрос", callback_data="quiz_next")],
-        [InlineKeyboardButton(text="🏁 Завершить игру", callback_data="quiz_end")]
+        [btn("🔁 Задать ещё вопрос", "person_again")],
+        [btn("🏁 Назад в меню", "person_end")]
     ])
 
+# 💰 Квиз: варианты ответа
+def quiz_keyboard(options: list[str]) -> InlineKeyboardMarkup:
+    letters = [chr(65 + i) for i in range(len(options))]  # A, B, C, ...
+    rows = [[btn(f"{letters[i]}: {opt}", f"quiz_answer_{i}")] for i, opt in enumerate(options)]
+    rows.append([btn("🏁 Завершить игру", "quiz_end")])
+    return InlineKeyboardMarkup(inline_keyboard=rows)
+
+# 💰 Квиз: статус
+def quiz_status_keyboard() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup(inline_keyboard=[
+        [btn("➡️ Следующий вопрос", "quiz_next")],
+        [btn("🏁 Завершить игру", "quiz_end")]
+    ])

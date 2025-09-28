@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78983fb6-1f72-4165-87e8-d192d19aa760" name="Changes" comment="Update Telegram AI Bot">
-      <change afterPath="$PROJECT_DIR$/bot/handlers/personalities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/handlers/quiz.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bot/services/quiz_ai.py" afterDir="false" />
+    <list default="true" id="78983fb6-1f72-4165-87e8-d192d19aa760" name="Changes" comment="Добавил общение с личностями, квиз и изменил меню Telegram AI Bot">
+      <change afterPath="$PROJECT_DIR$/bot/assets/prompts/personalities_prompt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/ui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bot/ui/quiz_ui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/handlers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/handlers/callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/callbacks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/handlers/random.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/random.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers/personalities.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/personalities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/handlers/quiz.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/handlers/quiz.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/keyboards/inline.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/keyboards/inline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/services/chatgpt_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/services/chatgpt_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/services/quiz_ai.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/services/quiz_ai.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/states/states.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot/states/states.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758488114843</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил общение с личностями, квиз и изменил меню Telegram AI Bot">
+      <option name="closed" value="true" />
+      <created>1759003571312</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759003571313</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Telegram AI Bot" />
     <MESSAGE value="Update Telegram AI Bot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Telegram AI Bot" />
+    <MESSAGE value="Добавил общение с личностями, квиз и изменил меню Telegram AI Bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил общение с личностями, квиз и изменил меню Telegram AI Bot" />
   </component>
 </project>
